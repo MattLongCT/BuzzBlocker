@@ -1,9 +1,9 @@
 (function() {
-    var W3SchoolsRemover = {
+    var BuzzBlocker = {
         currentUrl: {}, 
         constants: {
             queries: {
-                result_links: 'div.g:not([style*="display:none"]):not([style*="display: none"]) .r > a[href*="www.w3schools.com"]', 
+                result_links: 'div.g:not([style*="display:none"]):not([style*="display: none"]) .r > a[href*="www.buzzfeed.com"]', 
                 link_parent_node: '#rso div.g', 
                 main_google_node: 'main'
             }, 
@@ -13,8 +13,8 @@
                 active: 'active'
             }, 
             console: {
-                needs_to_be_updated: 'W3SchoolsRemover selectors need to be updated!', 
-                removed: 'W3Schools links were removed from this search.'
+                needs_to_be_updated: 'BuzzBlocker selectors need to be updated!', 
+                removed: 'Buzzfeed(TM) links were removed from this search.'
             }, 
             observerConfig: { childList: true, subtree: true }
         }, 
@@ -33,13 +33,13 @@
                 this.createResultsObserver(mainGoogleNode);
             });
         }, 
-        getAllW3Links: function() {
+        getAllBuzzLinks: function() {
             return document.querySelectorAll(this.constants.queries.result_links);
         }, 
         remove: function(info) {
             var tId = info.tId;
             var wId = info.wId;
-            var links = this.getAllW3Links();
+            var links = this.getAllBuzzLinks();
             var count = links.length;
             if(!count) {
                 if(!this.isSameUrl(window.location.href, info)) {
@@ -76,6 +76,6 @@
         }
     };
 
-    W3SchoolsRemover.init();
+    BuzzBlocker.init();
 
 })();
